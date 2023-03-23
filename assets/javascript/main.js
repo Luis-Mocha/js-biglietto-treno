@@ -9,22 +9,22 @@ form.addEventListener('submit', function (invioForm) {
     // ottenere i valore di numero km
     let numberKms = parseFloat(document.querySelector('#form-km-number').value);
     // Ottenere il valore della sezione select
-    let selectDiscount = document.getElementById('form-sconto');
-    let valueDiscount = selectDiscount.options[selectDiscount.selectedIndex].value;
+    let selectDiscount = document.getElementById('form-sconto').value;
+    console.log(selectDiscount)
 
     
     //  calcolare il prezzo base per km
     let pricePerKm = numberKms * 0.21;
 
-    console.log(numberKms, pricePerKm, valueDiscount);
+    console.log(numberKms, pricePerKm, selectDiscount);
 
     // calcolare il prezzo finale
-    if (valueDiscount == 'under18') {
+    if (selectDiscount == 'under18') {
 
         finalPrice = pricePerKm * 0.8;
         discountNotify = 'Hai usufrito dello sconto Under 18 equivalente al 20% del prezzo totale';
 
-    } else if (valueDiscount == 'over65') {
+    } else if (selectDiscount == 'over65') {
 
         finalPrice = pricePerKm  * 0.6;
         discountNotify = 'Hai usufrito dello sconto Over 65 equivalente al 40% del prezzo totale';
